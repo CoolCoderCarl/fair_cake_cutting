@@ -21,6 +21,27 @@ if __name__ == "__main__":
     cake = generate_cake_tastes()
     preferences = generate_preferences()
     print("The cake is " + cake[0] + " with " + str(cake[1]) + " cherries.")
+    print(preferences)
+    w_count = 0
+    n_count = 0
     for keys in preferences:
-        print(preferences[keys])
+        for l in range(persons):
+            if cake[0] == preferences[keys][l]:
+                print(
+                    "Person " + str(list(preferences.keys())[keys]) + " is want a cake"
+                )
+                w_count += 1
+                break
+            elif cake[0] != preferences[keys][l]:
+                print(
+                    "Person "
+                    + str(list(preferences.keys())[keys])
+                    + " is do not want a cake"
+                )
+                n_count += 1
+                if n_count == 2:
+                    print("No one want a cake")
+                    exit(1)
+                break
+
 
